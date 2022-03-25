@@ -18,4 +18,4 @@ COPY entrada.sh /usr/local/bin/
 ENTRYPOINT ["entrada.sh"]
 CMD ["https"]
 
-EXPOSE 80:80
+EXPOSE 8080

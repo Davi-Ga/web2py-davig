@@ -12,7 +12,6 @@ RUN apt_get update && apt-get -y install \
     && useradd -r -u 1000 -g web2py web2py \
     && chown -R web2py:web2py $WEB2PY_ROOT
 
-
 COPY entrada.sh /usr/local/bin/
 
 ENTRYPOINT ["entrada.sh"]

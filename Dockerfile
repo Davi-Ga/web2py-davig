@@ -4,10 +4,18 @@ LABEL AUTHOR "Davi Galdino <davigaldinoky@gmail.com>"
 ENV WEB2PY_VERSION=2.22.3-stable
 ENV WEB2PY_PASSWORD=1234
 
+WORKDIR $WEB2PY_ROOT
+
 RUN yum update && yum -y install \
+    epel-release \
+    && yum -y install \
     gcc \
     git \
-    libpcre3-dev \
+    pcre-devel \
+    python-devel \
+    python-pip \
+    tkinter \
+    && pip install --upgrade pip \
     && pip install uwsgi \
     && git clone --recursive https://github.com/web2py/web2py.git $WEB2PY_ROOT \
     && mv $WEB2PY_ROOT/handlers/wsgihandler.py $WEB2PY_ROOT \
@@ -20,5 +28,5 @@ COPY entrada.sh /usr/local/bin/
 ENTRYPOINT ["entrada.sh"]
 CMD ["https"]
 
-EXPOSE 80
+EXPOSE 8080:9090
 

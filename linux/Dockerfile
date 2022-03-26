@@ -1,6 +1,9 @@
 FROM python:3
 LABEL AUTHOR "Davi Galdino <davigaldinoky@gmail.com>"
 
+ENV WEB2PY_VERSION=2.22.3-stable
+ENV WEB2PY_PASSWORD=1234
+
 RUN apt_get update && apt-get -y install \
     gcc \
     git \
@@ -19,4 +22,3 @@ CMD ["https"]
 
 EXPOSE 80
 
-#lifecycle frozen

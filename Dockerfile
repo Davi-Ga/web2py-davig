@@ -27,6 +27,7 @@ COPY entrada.sh /usr/local/bin/
 
 ENTRYPOINT ["entrada.sh"]
 CMD ["https"]
+USER web2py
 
 EXPOSE 8080:9090
 

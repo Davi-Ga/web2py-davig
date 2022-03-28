@@ -9,6 +9,8 @@ ENV WEB2PY_PASSWORD=1234
 ENV WEB2PY_ADMIN_SECURITY_BYPASS=
 ENV UWSGI_OPTIONS=
 
+WORKDIR $WEB2PY_ROOT
+
 RUN apt-get update && apt-get -y upgrade &&  apt-get -y install \
     gcc \
     git \

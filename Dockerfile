@@ -4,7 +4,7 @@ LABEL AUTHOR "Davi Galdino <davigaldinoky@gmail.com>"
 ENV WEB2PY_ROOT=/opt/web2py
 
 ENV WEB2PY_VERSION=2.22.3-stable
-ENV WEB2PY_PASSWORD=1234
+ENV WEB2PY_PASSWORD=
 
 ENV WEB2PY_ADMIN_SECURITY_BYPASS=
 ENV UWSGI_OPTIONS=
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get -y upgrade &&  apt-get -y install \
 COPY entrada.sh /usr/local/bin/
 
 ENTRYPOINT ["entrada.sh"]
-CMD ["https"]
+CMD ["http"]
 USER web2py
 
 EXPOSE 8080 9090

@@ -11,7 +11,7 @@ ENV UWSGI_OPTIONS=
 
 WORKDIR $WEB2PY_ROOT
 
-RUN apt-get update && apt-get -y upgrade &&  apt-get -y install \
+RUN apt-get update && apt-get -y upgrade &&  apt-get -y install && apt-get clean -y\
     gcc \
     git \
     libpcre3-dev \

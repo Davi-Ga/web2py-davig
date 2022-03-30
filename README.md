@@ -13,7 +13,7 @@ Container docker atualizado por mim para rodar o *Web2py 2.22*:clipboard: juntam
 ### Como utilizar como administrador
   Para ter acesso de administrador é necessário criar uma key com a sua sessão  
   
-  :small_red_triangle:1º Abra o seu CMD na keys pasta do web2py:  
+  :small_red_triangle:1º Abra o seu CMD na pasta keys do web2py:  
   ![image](https://user-images.githubusercontent.com/86674827/160904285-be49888c-efa3-4eff-89de-2a18a2de30c3.png)  
   
   :small_red_triangle:2º Digite **./create-keys.sh** para criar a key da sua sessão  

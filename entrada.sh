@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# users can overwrite UWSGI_OPTIONS
+# Usuários podem sobrescrever o UWSGI_OPTIONS
 if [ "$UWSGI_OPTIONS" == '' ]; then
   UWSGI_OPTIONS='--master --thunder-lock --enable-threads'
 fi
@@ -11,19 +11,19 @@ selectVersion() {
   fi
 }
 
-# Run uWSGI using the uwsgi protocol
+# Execute o uWSGI usando o seu protocolo
 if [ "$1" = 'uwsgi' ]; then
-  # switch to a particular Web2py version if specificed
+  # Troque para a versão particular do Web2Py caso seja especificado
   selectVersion
-  # add an admin password if specified
+  # Adiciona a senha do administrador caso seja especificado
   if [ "$WEB2PY_PASSWORD" != '' ]; then
     python -c "from gluon.main import save_password; save_password('$WEB2PY_PASSWORD',443)"
   fi
-  # run uwsgi
+  # Execute o uWSGI
   exec uwsgi --socket 0.0.0.0:9090 --protocol uwsgi --wsgi wsgihandler:application $UWSGI_OPTIONS
 fi
 
-# Run uWSGI using http
+# Execute uWSGI usando HTTP
 if [ "$1" = 'http' ]; then
   # switch to a particular Web2py version if specificed
   selectVersion

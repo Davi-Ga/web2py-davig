@@ -44,11 +44,11 @@ if [ "$1" = 'http' ]; then
   exec uwsgi --http 0.0.0.0:8080 --wsgi wsgihandler:application $UWSGI_OPTIONS
 fi
 
-# Run using the builtin Rocket web server
+# Execute usando uma contrução do Rocket Web Server
 if [ "$1" = 'rocket' ]; then
-  # switch to a particular Web2py version if specificed
+  # Troque para a versão particular do Web2Py caso especificado
   selectVersion
-  # Use the -a switch to specify the password
+  # Use o -a para trocar a senha específica
   exec python web2py.py -a '$WEB2PY_PASSWORD' -i 0.0.0.0 -p 8080
 fi
 

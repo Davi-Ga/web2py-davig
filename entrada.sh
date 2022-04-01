@@ -25,9 +25,9 @@ fi
 
 # Execute uWSGI usando HTTP
 if [ "$1" = 'http' ]; then
-  # switch to a particular Web2py version if specificed
+  # Altera a versão particular do Web2Py caso especificado
   selectVersion
-  # disable administrator HTTP protection if requested
+  # Desabilita a proteção HTTP
   if [ "$WEB2PY_ADMIN_SECURITY_BYPASS" = 'true' ]; then
     if [ "$WEB2PY_PASSWORD" == '' ]; then
       echo "ERROR - WEB2PY_PASSWORD not specified"
@@ -40,7 +40,7 @@ if [ "$1" = 'http' ]; then
     sed -i "s/is_local=(env.remote_addr in local_hosts and client == env.remote_addr)/is_local=True/" \
       $WEB2PY_ROOT/gluon/main.py
   fi
-  # run uwsgi
+  # Execute o uWSGI
   exec uwsgi --http 0.0.0.0:8080 --wsgi wsgihandler:application $UWSGI_OPTIONS
 fi
 

@@ -5,6 +5,7 @@ if [ "$UWSGI_OPTIONS" == '' ]; then
   UWSGI_OPTIONS='--master --thunder-lock --enable-threads'
 fi
 
+#Realiza um checkout da versão
 selectVersion() {
   if [ "$WEB2PY_VERSION" != '' ]; then
     git checkout $WEB2PY_VERSION

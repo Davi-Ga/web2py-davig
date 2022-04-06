@@ -3,10 +3,16 @@ version: '2'
 services:
   web2py:
     build: .
-    image: davi-g/web2py
+    image: daviga/web2py
     ports:
       - 8080:8080
     environment:
       - WEB2PY_PASSWORD=1234
       - WEB2PY_ADMIN_SECURITY_BYPASS=true
-  
+    volumes:
+     - teste:/opt/web2py/applications
+
+volumes:
+  teste: 
+    external: True
+      

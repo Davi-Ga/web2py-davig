@@ -10,9 +10,9 @@ services:
       - WEB2PY_PASSWORD=1234
       - WEB2PY_ADMIN_SECURITY_BYPASS=true
     volumes:
-     - teste:/opt/web2py/applications
+     - web2pyd:/opt/web2py/applications
 
 volumes:
-  teste: 
+  web2pyd: 
     external: True
       

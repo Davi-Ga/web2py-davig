@@ -25,8 +25,10 @@ RUN apt-get update && apt-get -y upgrade &&  apt-get -y install && apt-get clean
 COPY entrada.sh /usr/local/bin/
 
 ENTRYPOINT ["entrada.sh"]
-CMD ["http"]
+
 USER web2py
 
 EXPOSE 8080 9090
+
+CMD ["http"]
 

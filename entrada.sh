@@ -24,11 +24,11 @@ if [ "$1" = 'uwsgi' ]; then
   exec uwsgi --socket 0.0.0.0:9090 --protocol uwsgi --wsgi wsgihandler:application $UWSGI_OPTIONS
 fi
 
-# Execute uWSGI usando HTTP
+# Execute uWSGI usando HTTP.
 if [ "$1" = 'http' ]; then
-  # Altera a versão particular do Web2Py caso especificado
+  # Altera a versão particular do Web2Py caso especificado.
   selectVersion
-  # Desabilita a proteção HTTP
+  # Desabilita a proteção HTTP.
   if [ "$WEB2PY_ADMIN_SECURITY_BYPASS" = 'true' ]; then
     if [ "$WEB2PY_PASSWORD" == '' ]; then
       echo "ERROR - WEB2PY_PASSWORD not specified"
@@ -41,15 +41,15 @@ if [ "$1" = 'http' ]; then
     sed -i "s/is_local=(env.remote_addr in local_hosts and client == env.remote_addr)/is_local=True/" \
       $WEB2PY_ROOT/gluon/main.py
   fi
-  # Execute o uWSGI
+  # Execute o uWSGI.
   exec uwsgi --http 0.0.0.0:8080 --wsgi wsgihandler:application $UWSGI_OPTIONS
 fi
 
-# Execute usando uma contrução do Rocket Web Server
+# Execute usando uma contrução do Rocket Web Server.
 if [ "$1" = 'rocket' ]; then
-  # Troque para a versão particular do Web2Py caso especificado
+  # Troque para a versão particular do Web2Py caso especificado.
   selectVersion
-  # Use o -a para trocar a senha específica
+  # Use o -a para trocar a senha específica.
   exec python web2py.py -a '$WEB2PY_PASSWORD' -i 0.0.0.0 -p 8080
 fi
 

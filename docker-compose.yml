@@ -22,7 +22,7 @@ services:
     ports:
       - 8080:80
       - 8443:443
-
+##Define um volume externo
 volumes:
   web2pyd: 
     external: True

@@ -52,5 +52,5 @@ if [ "$1" = 'rocket' ]; then
   # Use o -a para trocar a senha específica.
   exec python web2py.py -a '$WEB2PY_PASSWORD' -i 0.0.0.0 -p 8080
 fi
-##Executa os comandos
+##Executa os comandos.
 exec "$@"

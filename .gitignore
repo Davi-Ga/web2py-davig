@@ -1,2 +1,4 @@
 .cache/
 *.crt
+./keys/web2py.crt
+./keys/web2py.keys

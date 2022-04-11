@@ -16,6 +16,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install && apt-get clean 
     git \
     libpcre3-dev \
     && pip install uwsgi \
+    && pip install GitPython \
     && git clone --recursive https://github.com/web2py/web2py.git $WEB2PY_ROOT \
     && mv $WEB2PY_ROOT/handlers/wsgihandler.py $WEB2PY_ROOT\
     && groupadd -g 1000 web2py \

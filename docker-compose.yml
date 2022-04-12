@@ -10,7 +10,7 @@ services:
       - WEB2PY_ADMIN_SECURITY_BYPASS=true
     volumes:
      - web2pyd:/opt/web2py/applications
-  
+##Certificado SSL
   nginx:
     image: nginx:alpine
     volumes:

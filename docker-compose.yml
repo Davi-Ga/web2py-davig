@@ -14,7 +14,7 @@ services:
   
   web2py:
     build: .
-    image: daviga/web2py
+    image: daviga/testeweb
     command: uwsgi
     environment:
       - WEB2PY_PASSWORD=1234
@@ -23,6 +23,7 @@ services:
      - web2pyd:/opt/web2py/applications
     depends_on:
       - db
+
 ##Certificado SSL
   nginx:
     image: nginx:alpine

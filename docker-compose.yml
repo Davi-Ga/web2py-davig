@@ -1,6 +1,17 @@
-version: '2'
+version: '3.5'
 
 services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+  
   web2py:
     build: .
     image: daviga/web2py
@@ -10,6 +21,8 @@ services:
       - WEB2PY_ADMIN_SECURITY_BYPASS=true
     volumes:
      - web2pyd:/opt/web2py/applications
+    depends_on:
+      - db
 ##Certificado SSL
   nginx:
     image: nginx:alpine
@@ -26,4 +39,5 @@ services:
 volumes:
   web2pyd: 
     external: True
-      
+  db:
+    driver: local    

@@ -19,8 +19,6 @@ services:
     environment:
       - WEB2PY_PASSWORD=1234
       - WEB2PY_ADMIN_SECURITY_BYPASS=true
-    volumes:
-     - web2pyd:/opt/web2py/applications
     depends_on:
       - db
 
@@ -38,7 +36,5 @@ services:
       - 8443:443
 ##Define um volume externo
 volumes:
-  web2pyd: 
-    external: True
   db:
     driver: local    
